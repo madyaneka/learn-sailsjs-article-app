@@ -51,6 +51,11 @@ module.exports.routes = {
   '/articles/edit/:id': {
     controller: 'ArticlesController',
     action: 'edit'
+  },
+
+  '/articles/update/:id': {
+    controller: 'ArticlesController',
+    action: 'update'
   }
 
   /***************************************************************************

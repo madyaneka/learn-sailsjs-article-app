@@ -65,6 +65,26 @@ module.exports = {
 
             return res.view('edit', { article })
         })
+    },
+
+    update (req, res) {
+        let id = req.params.id
+        let title = req.body.title
+        let body = req.body.body
+
+        console.log(req.params)
+
+        Articles.update({ id: id }, { title, body }).exec((err, article) => {
+            if (err) {
+                return res.send(500, {
+                    error: 'Database Error'
+                })
+            }
+
+            console.log(article)
+
+            return res.redirect('/articles/list')
+        })
     }
 
 };
