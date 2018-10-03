@@ -40,7 +40,7 @@ module.exports.routes = {
 
   '/articles/create': {
     controller: 'ArticlesController',
-    action: 'create'
+    action: 'createCustom'
   },
 
   '/articles/delete/:id': {
@@ -55,7 +55,7 @@ module.exports.routes = {
 
   '/articles/update/:id': {
     controller: 'ArticlesController',
-    action: 'update'
+    action: 'updateCustom'
   }
 
   /***************************************************************************

@@ -23,7 +23,7 @@ module.exports = {
     return res.view('add');
   },
 
-  create (req, res) {
+  createCustom (req, res) {
     let title = req.body.title;
     let body = req.body.body;
 
@@ -67,7 +67,7 @@ module.exports = {
     });
   },
 
-  update (req, res) {
+  updateCustom (req, res) {
     let id = req.params.id;
     let title = req.body.title;
     let body = req.body.body;
