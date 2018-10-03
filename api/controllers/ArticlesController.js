@@ -39,6 +39,19 @@ module.exports = {
 
             return res.redirect('/articles/list')
         })
+    },
+
+    delete (req, res) {
+        console.log('hahaha')
+        Articles.destroy({ id: req.params.id }).exec((err) => {
+            if (err) {
+                return res.send(500, {
+                    error: 'Database Error'
+                })
+            }
+
+            return res.redirect('/articles/list')
+        })
     }
 
 };
