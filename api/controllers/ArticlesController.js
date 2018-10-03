@@ -6,81 +6,81 @@
  */
 
 module.exports = {
-  
-    list (req, res) {
-        Articles.find().exec((err, articles) => {
-            if (err) {
-                return res.send(500, {
-                    error: 'Database Error'
-                })
-            }
 
-            return res.view('list', {articles})
-        })
-    },
+  list (req, res) {
+    Articles.find().exec((err, articles) => {
+      if (err) {
+        return res.send(500, {
+          error: 'Database Error'
+        });
+      }
 
-    add (req, res) {
-        return res.view('add')
-    },
+      return res.view('list', {articles});
+    });
+  },
 
-    create (req, res) {
-        let title = req.body.title
-        let body = req.body.body
+  add (req, res) {
+    return res.view('add');
+  },
 
-        Articles.create({
-            title,
-            body
-        }).exec((err) => {
-            if (err) {
-                return res.send(500, {
-                    error: 'Database Error'
-                })
-            }
+  create (req, res) {
+    let title = req.body.title;
+    let body = req.body.body;
 
-            return res.redirect('/articles/list')
-        })
-    },
+    Articles.create({
+      title,
+      body
+    }).exec((err) => {
+      if (err) {
+        return res.send(500, {
+          error: 'Database Error'
+        });
+      }
 
-    delete (req, res) {
-        Articles.destroy({ id: req.params.id }).exec((err) => {
-            if (err) {
-                return res.send(500, {
-                    error: 'Database Error'
-                })
-            }
+      return res.redirect('/articles/list');
+    });
+  },
 
-            return res.redirect('/articles/list')
-        })
-    },
+  delete (req, res) {
+    Articles.destroy({ id: req.params.id }).exec((err) => {
+      if (err) {
+        return res.send(500, {
+          error: 'Database Error'
+        });
+      }
 
-    edit (req, res) {
-        let id = req.params.id
+      return res.redirect('/articles/list');
+    });
+  },
 
-        Articles.findOne({ id }).exec((err, article) => {
-            if (err) {
-                return res.send(500, {
-                    error: 'Database Error'
-                })
-            }
+  edit (req, res) {
+    let id = req.params.id;
 
-            return res.view('edit', { article })
-        })
-    },
+    Articles.findOne({ id }).exec((err, article) => {
+      if (err) {
+        return res.send(500, {
+          error: 'Database Error'
+        });
+      }
 
-    update (req, res) {
-        let id = req.params.id
-        let title = req.body.title
-        let body = req.body.body
+      return res.view('edit', { article });
+    });
+  },
 
-        Articles.update({ id: id }, { title, body }).exec((err) => {
-            if (err) {
-                return res.send(500, {
-                    error: 'Database Error'
-                })
-            }
+  update (req, res) {
+    let id = req.params.id;
+    let title = req.body.title;
+    let body = req.body.body;
 
-            return res.redirect('/articles/list')
-        })
-    }
+    Articles.update({ id: id }, { title, body }).exec((err) => {
+      if (err) {
+        return res.send(500, {
+          error: 'Database Error'
+        });
+      }
+
+      return res.redirect('/articles/list');
+    });
+  }
 
 };
