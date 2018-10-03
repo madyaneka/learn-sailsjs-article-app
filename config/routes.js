@@ -32,10 +32,15 @@ module.exports.routes = {
     controller: 'ArticlesController',
     action: 'list'
   },
-  
+
   '/articles/add': {
     controller: 'ArticlesController',
     action: 'add'
+  },
+
+  '/articles/create': {
+    controller: 'ArticlesController',
+    action: 'create'
   }
 
   /***************************************************************************

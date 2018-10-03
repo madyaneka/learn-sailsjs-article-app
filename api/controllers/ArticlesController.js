@@ -18,9 +18,27 @@ module.exports = {
             return res.view('list', {articles})
         })
     },
-    
+
     add (req, res) {
         return res.view('add')
+    },
+
+    create (req, res) {
+        let title = req.body.title
+        let body = req.body.body
+
+        Articles.create({
+            title,
+            body
+        }).exec((err) => {
+            if (err) {
+                return res.send(500, {
+                    error: 'Database Error'
+                })
+            }
+
+            return res.redirect('/articles/list')
+        })
     }
 
 };
