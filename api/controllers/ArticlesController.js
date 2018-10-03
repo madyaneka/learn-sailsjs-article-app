@@ -72,16 +72,12 @@ module.exports = {
         let title = req.body.title
         let body = req.body.body
 
-        console.log(req.params)
-
-        Articles.update({ id: id }, { title, body }).exec((err, article) => {
+        Articles.update({ id: id }, { title, body }).exec((err) => {
             if (err) {
                 return res.send(500, {
                     error: 'Database Error'
                 })
             }
-
-            console.log(article)
 
             return res.redirect('/articles/list')
         })
