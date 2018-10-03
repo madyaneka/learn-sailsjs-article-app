@@ -42,7 +42,6 @@ module.exports = {
     },
 
     delete (req, res) {
-        console.log('hahaha')
         Articles.destroy({ id: req.params.id }).exec((err) => {
             if (err) {
                 return res.send(500, {
@@ -51,6 +50,20 @@ module.exports = {
             }
 
             return res.redirect('/articles/list')
+        })
+    },
+
+    edit (req, res) {
+        let id = req.params.id
+
+        Articles.findOne({ id }).exec((err, article) => {
+            if (err) {
+                return res.send(500, {
+                    error: 'Database Error'
+                })
+            }
+
+            return res.view('edit', { article })
         })
     }
 

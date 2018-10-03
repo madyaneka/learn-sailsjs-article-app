@@ -46,6 +46,11 @@ module.exports.routes = {
   '/articles/delete/:id': {
     controller: 'ArticlesController',
     action: 'delete'
+  },
+
+  '/articles/edit/:id': {
+    controller: 'ArticlesController',
+    action: 'edit'
   }
 
   /***************************************************************************
