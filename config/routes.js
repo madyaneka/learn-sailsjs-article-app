@@ -28,6 +28,16 @@ module.exports.routes = {
     view: 'pages/homepage'
   },
 
+  '/articles/list': {
+    controller: 'ArticlesController',
+    action: 'list'
+  },
+  
+  '/articles/add': {
+    controller: 'ArticlesController',
+    action: 'add'
+  }
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
