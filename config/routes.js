@@ -56,6 +56,11 @@ module.exports.routes = {
   '/articles/update/:id': {
     controller: 'ArticlesController',
     action: 'updateCustom'
+  },
+
+  '/users/list': {
+    controller: 'UsersController',
+    action: 'list'
   }
 
   /***************************************************************************
